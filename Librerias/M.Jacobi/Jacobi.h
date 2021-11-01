@@ -14,9 +14,7 @@ class Jacobi{
 	public:
 	    void setJacobi();
 		void metodoJacobi(int l, float x[], float a[][10], float b[]);
-        void getMatrix(float a[][10], int l);
-        int determinante(float a[][10], int l);
-        int cofactor(float a[][10], int l, int fila, int col);	
+        void getMatrix(float a[][10], int l);	
 		void getJacobi();
 		
 };
@@ -96,55 +94,6 @@ void Jacobi::getMatrix(float a[][v], int l){
 	cout<<"\n ";
 }
 
-//Determinante Jacobi
-int Jacobi::determinante(float a[][v], int l){
-	
-	int det = 0.0;
-	
-	if(l==1){
-		
-		det=a[0][0];
-		
-	}else{
-		
-		for(int j=0; j<l; j++){
-			
-			det=det+a[0][j]*cofactor(a,l,0,j);
-		}
-	}
-	
-	return det;
-}
-
-//Cofactores Jacobi
-int Jacobi::cofactor(float a[][v], int l, int filas, int col){
-	
-	float submatriz[v][v];
-	int m=l-1;
-	int x=0;
-	int y=0;
-	
-	for(int i=0; i<l; i++){
-		
-		for(int j=0; j<l; j++){
-			
-			if(i != filas && j != col){
-				
-				submatriz[x][y] = a[i][j];
-				y++;
-				
-				if(y>=m){
-					
-					x++;
-					y=0;
-				}
-			}
-		}
-	} 
-	
-	return pow(-1.0, filas + col)*determinante(submatriz, m);
-}
-
 //Metodo Jacobi
  void Jacobi::metodoJacobi(int l, float x[], float a[][10], float b[]){
  	
@@ -190,7 +139,6 @@ void Jacobi::getJacobi(){
 		
 		cout<<"\n Mostrar la matriz ingresada: "<<endl;
 	    getMatrix(a,l);
-	    cout<<"\n El determinante es: "<<determinante(a,l)<<endl;
 	    metodoJacobi(l, x, a, b);
 	}
 	
