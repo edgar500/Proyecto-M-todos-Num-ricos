@@ -12,14 +12,14 @@ class Jacobi{
 	    float x[v], a[v][v], b[v], dd, suma;
 		
 	public:
-	    void setJacobi();
+	    Jacobi();
 		void metodoJacobi(int l, float x[], float a[][10], float b[]);
         void getMatrix(float a[][10], int l);	
 		void getJacobi();
 		
 };
 
-void Jacobi::setJacobi(){
+Jacobi::Jacobi(){
 	
 	cout<<"\n\n\t ====== Metodo de Jacobi ====== \n\n";
     cout<<"-> Introduce el numero de ecuaciones: ";
