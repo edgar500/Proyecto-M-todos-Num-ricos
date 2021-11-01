@@ -28,7 +28,6 @@ int main(){
 		if(op==2){
 			
 			Jacobi jacobi;
-			jacobi.setJacobi();
 			jacobi.getJacobi();
 		}
 	}
